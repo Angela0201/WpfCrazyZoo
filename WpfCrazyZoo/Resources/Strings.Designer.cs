@@ -61,7 +61,7 @@ namespace WpfCrazyZoo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crazy Zoo.
+        ///   Looks up a localized string similar to Crazy Zoo..
         /// </summary>
         public static string AppTitle {
             get {
