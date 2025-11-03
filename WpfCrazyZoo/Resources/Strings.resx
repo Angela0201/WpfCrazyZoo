@@ -165,4 +165,100 @@
   <data name="Msg_Sound" xml:space="preserve">
     <value>{0}: {1}</value>
   </data>
+  <data name="Ui_FilterByKind" xml:space="preserve">
+    <value>Filter by kind:</value>
+  </data>
+  <data name="Ui_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Ui_Cat" xml:space="preserve">
+    <value>Cat</value>
+  </data>
+  <data name="Ui_Dog" xml:space="preserve">
+    <value>Dog</value>
+  </data>
+  <data name="Ui_Bird" xml:space="preserve">
+    <value>Bird</value>
+  </data>
+  <data name="Ui_Animals" xml:space="preserve">
+    <value>Animals</value>
+  </data>
+  <data name="Ui_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Ui_Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Ui_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Ui_Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Ui_Kind" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="Ui_Food" xml:space="preserve">
+    <value>Food</value>
+  </data>
+  <data name="Ui_AddAnimal" xml:space="preserve">
+    <value>Add animal</value>
+  </data>
+  <data name="Ui_RemoveAnimal" xml:space="preserve">
+    <value>Remove animal</value>
+  </data>
+  <data name="Ui_MakeSound" xml:space="preserve">
+    <value>Make sound</value>
+  </data>
+  <data name="Ui_CrazyAction" xml:space="preserve">
+    <value>Crazy action</value>
+  </data>
+  <data name="Ui_ClearLog" xml:space="preserve">
+    <value>Clear log</value>
+  </data>
+  <data name="Msg_LogEmpty" xml:space="preserve">
+    <value>Log is already empty.</value>
+  </data>
+  <data name="Msg_ClearLogConfirmText" xml:space="preserve">
+    <value>Clear all log entries?</value>
+  </data>
+  <data name="Msg_ClearLogConfirmTitle" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Ui_Stats" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="Ui_DropFood" xml:space="preserve">
+    <value>Drop Food</value>
+  </data>
+  <data name="Ui_StartNight" xml:space="preserve">
+    <value>Start Night</value>
+  </data>
+  <data name="Ui_StopNight" xml:space="preserve">
+    <value>Stop Night</value>
+  </data>
+  <data name="Ui_Feed" xml:space="preserve">
+    <value>Feed</value>
+  </data>
+  <data name="Ui_AddDialog_Title" xml:space="preserve">
+    <value>Add animal</value>
+  </data>
+  <data name="Ui_AddDialog_Name" xml:space="preserve">
+    <value>Add name</value>
+  </data>
+  <data name="Ui_AddDialog_Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Ui_AddDialog_Kind" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="Ui_AddDialog_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Ui_AddDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Ui_NoCrazyAction" xml:space="preserve">
+    <value>No Crazy Action</value>
+  </data>
 </root>
