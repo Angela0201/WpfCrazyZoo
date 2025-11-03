@@ -6,9 +6,20 @@
         xmlns:local="clr-namespace:WpfCrazyZoo"
         mc:Ignorable="d"
         xmlns:res="clr-namespace:WpfCrazyZoo.Resources"
-        Title="Crazy Zoo" Height="600" Width="900"
+        Title="{x:Static res:Strings.AppTitle}" Height="600" Width="900"
         MinHeight="520" MinWidth="860"
         SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style x:Key="ReadOnlyAsText" TargetType="TextBox">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="CaretBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+            <Setter Property="IsTabStop" Value="False"/>
+        </Style>
+    </Window.Resources>
+    
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Grid Margin="10">
             <Grid.RowDefinitions>
@@ -22,62 +33,75 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,8">
-                <TextBlock Text="Filter by kind:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <TextBlock Text="{x:Static res:Strings.Ui_FilterByKind}" VerticalAlignment="Center" Margin="0,0,8,0"/>
                 <ComboBox x:Name="FilterKindCombo" Width="180" SelectionChanged="FilterKindCombo_SelectionChanged">
-                    <ComboBoxItem Tag="-1" Content="All" IsSelected="True"/>
-                    <ComboBoxItem Tag="0" Content="Cat"/>
-                    <ComboBoxItem Tag="1" Content="Dog"/>
-                    <ComboBoxItem Tag="2" Content="Bird"/>
+                    <ComboBoxItem Tag="-1" Content="{x:Static res:Strings.Ui_All}" IsSelected="True"/>
+                    <ComboBoxItem Tag="0" Content="{x:Static res:Strings.Ui_Cat}"/>
+                    <ComboBoxItem Tag="1" Content="{x:Static res:Strings.Ui_Dog}"/>
+                    <ComboBoxItem Tag="2" Content="{x:Static res:Strings.Ui_Bird}"/>
                 </ComboBox>
             </StackPanel>
 
-            <GroupBox Header="Animals" Grid.Row="1" Grid.Column="0" Margin="0,0,8,8">
+            <GroupBox Header="{x:Static res:Strings.Ui_Animals}" Grid.Row="1" Grid.Column="0" Margin="0,0,8,8">
                 <Grid>
-                    <ListBox x:Name="AnimalsList" DisplayMemberPath="Name" SelectionChanged="AnimalsList_SelectionChanged"/>
+                    <ListBox x:Name="AnimalsList"
+                             DisplayMemberPath="Name"
+                             ItemsSource="{Binding ViewAnimals}"
+                             SelectedItem="{Binding SelectedAnimal, Mode=TwoWay}"
+                             SelectionChanged="AnimalsList_SelectionChanged"/>
                 </Grid>
             </GroupBox>
 
-            <GroupBox Header="Details" Grid.Row="1" Grid.Column="1" Margin="0,0,0,8">
+            <GroupBox Header="{x:Static res:Strings.Ui_Details}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,8">
                 <StackPanel Margin="8">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                        <TextBlock Width="80" VerticalAlignment="Center" Text="Name"/>
-                        <TextBox x:Name="NameBox" Width="220"/>
+                        <TextBlock Width="80" VerticalAlignment="Center" Text="{x:Static res:Strings.Ui_Name}"/>
+                        <TextBox x:Name="NameBox" Width="220" Style="{StaticResource ReadOnlyAsText}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                        <TextBlock Width="80" VerticalAlignment="Center" Text="Age"/>
-                        <TextBox x:Name="AgeBox" Width="220"/>
+                        <TextBlock Width="80" VerticalAlignment="Center" Text="{x:Static res:Strings.Ui_Age}"/>
+                        <TextBox x:Name="AgeBox" Width="220" Style="{StaticResource ReadOnlyAsText}" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                        <TextBlock Width="80" VerticalAlignment="Center" Text="Kind"/>
-                        <ComboBox x:Name="KindCombo" Width="220">
+                        <TextBlock Width="80" VerticalAlignment="Center" Text="{x:Static res:Strings.Ui_Kind}"/>
+                        <ComboBox x:Name="KindCombo" Width="220" IsEnabled="False">
                             <ComboBoxItem Tag="0" Content="Cat"/>
                             <ComboBoxItem Tag="1" Content="Dog"/>
                             <ComboBoxItem Tag="2" Content="Bird"/>
                         </ComboBox>
                     </StackPanel>
 
-                    <WrapPanel Margin="0,0,0,10">
-                        <Button x:Name="AddBtn" Content="Add animal" Click="AddBtn_Click" Margin="0,0,6,0"/>
-                        <Button x:Name="RemoveBtn" Content="Remove animal" Click="RemoveBtn_Click" Margin="0,0,6,0"/>
-                        <Button x:Name="SoundBtn" Content="Make sound" Click="SoundBtn_Click" Margin="0,0,6,0"/>
+                    <WrapPanel Margin="0,0,0,10" ItemWidth="120">
+                        <Button x:Name="AddBtn" Width="110" Content="{x:Static res:Strings.Ui_AddAnimal}" Click="AddBtn_Click" Margin="0,0,6,0"/>
+                        <Button x:Name="RemoveBtn" Width="110" Content="{x:Static res:Strings.Ui_RemoveAnimal}" Click="RemoveBtn_Click" Margin="0,0,6,0"/>
+                        <Button x:Name="SoundBtn" Width="110" Content="{x:Static res:Strings.Ui_MakeSound}" Click="SoundBtn_Click" Margin="0,0,6,0"/>
                     </WrapPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                        <TextBlock Width="80" VerticalAlignment="Center" Text="Food"/>
+                        <TextBlock Width="80" VerticalAlignment="Center" Text="{x:Static res:Strings.Ui_Food}"/>
                         <TextBox x:Name="FoodBox" Width="220"/>
-                        <Button Content="Feed" Click="FeedBtn_Click" Margin="8,0,0,0"/>
+                        <Button Width="120" Content="{x:Static res:Strings.Ui_Feed}" Click="FeedBtn_Click" Margin="8,0,0,0"/>
                     </StackPanel>
 
-                    <Button x:Name="CrazyBtn" Content="Crazy action" Click="CrazyBtn_Click" Width="160" HorizontalAlignment="Left"/>
+                    <WrapPanel Margin="0,6,0,0" ItemWidth="120">
+                        <Button x:Name="DropFoodBtn" Width="110" Content="{x:Static res:Strings.Ui_DropFood}" Click="DropFoodBtn_Click" Margin="0,0,6,0"/>
+                        <Button x:Name="NightBtn" Width="110" Content="{x:Static res:Strings.Ui_StartNight}" Click="NightBtn_Click" Margin="0,0,6,0"/>
+                        <Button x:Name="CrazyBtn" Width="110" Content="{x:Static res:Strings.Ui_CrazyAction}" Click="CrazyBtn_Click" Margin="0,0,6,0"/>
+                    </WrapPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{x:Static res:Strings.Ui_Log}" Grid.Row="2" Grid.Column="0" Margin="0,0,8,0">
+                <StackPanel Margin="6">
+                    <ListBox x:Name="LogList" Height="200" Margin="0,0,0,8" ItemsSource="{Binding LogLines}"/>
+                    <Button x:Name="ClearLogBtn" Content="{x:Static res:Strings.Ui_ClearLog}" Width="120" Click="ClearLogBtn_Click"/>
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Header="Log" Grid.Row="2" Grid.ColumnSpan="2">
+            <GroupBox Header="{x:Static res:Strings.Ui_Stats}" Grid.Row="2" Grid.Column="1">
                 <StackPanel Margin="6">
-                    <ListBox x:Name="LogList" Height="120" Margin="0,0,0,8"/>
-                    <Button x:Name="ClearLogBtn" Content="Clear log" Width="120" Click="ClearLogBtn_Click"/>
+                    <ListBox x:Name="StatsList" Height="120" Margin="0,0,0,8" ItemsSource="{Binding StatsLines}"/>
                 </StackPanel>
             </GroupBox>
         </Grid>

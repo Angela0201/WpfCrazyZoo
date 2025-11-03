@@ -97,6 +97,24 @@ namespace WpfCrazyZoo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear all log entries?.
+        /// </summary>
+        public static string Msg_ClearLogConfirmText {
+            get {
+                return ResourceManager.GetString("Msg_ClearLogConfirmText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Msg_ClearLogConfirmTitle {
+            get {
+                return ResourceManager.GetString("Msg_ClearLogConfirmTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Crazy action: {0}.
         /// </summary>
         public static string Msg_Crazy {
@@ -129,6 +147,15 @@ namespace WpfCrazyZoo.Resources {
         public static string Msg_FoodRequired {
             get {
                 return ResourceManager.GetString("Msg_FoodRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log is already empty..
+        /// </summary>
+        public static string Msg_LogEmpty {
+            get {
+                return ResourceManager.GetString("Msg_LogEmpty", resourceCulture);
             }
         }
         
@@ -201,6 +228,267 @@ namespace WpfCrazyZoo.Resources {
         public static string Msg_Sound {
             get {
                 return ResourceManager.GetString("Msg_Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add animal.
+        /// </summary>
+        public static string Ui_AddAnimal {
+            get {
+                return ResourceManager.GetString("Ui_AddAnimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string Ui_AddDialog_Age {
+            get {
+                return ResourceManager.GetString("Ui_AddDialog_Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Ui_AddDialog_Cancel {
+            get {
+                return ResourceManager.GetString("Ui_AddDialog_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kind.
+        /// </summary>
+        public static string Ui_AddDialog_Kind {
+            get {
+                return ResourceManager.GetString("Ui_AddDialog_Kind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add name.
+        /// </summary>
+        public static string Ui_AddDialog_Name {
+            get {
+                return ResourceManager.GetString("Ui_AddDialog_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Ui_AddDialog_Ok {
+            get {
+                return ResourceManager.GetString("Ui_AddDialog_Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add animal.
+        /// </summary>
+        public static string Ui_AddDialog_Title {
+            get {
+                return ResourceManager.GetString("Ui_AddDialog_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string Ui_Age {
+            get {
+                return ResourceManager.GetString("Ui_Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string Ui_All {
+            get {
+                return ResourceManager.GetString("Ui_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animals.
+        /// </summary>
+        public static string Ui_Animals {
+            get {
+                return ResourceManager.GetString("Ui_Animals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bird.
+        /// </summary>
+        public static string Ui_Bird {
+            get {
+                return ResourceManager.GetString("Ui_Bird", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cat.
+        /// </summary>
+        public static string Ui_Cat {
+            get {
+                return ResourceManager.GetString("Ui_Cat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear log.
+        /// </summary>
+        public static string Ui_ClearLog {
+            get {
+                return ResourceManager.GetString("Ui_ClearLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crazy action.
+        /// </summary>
+        public static string Ui_CrazyAction {
+            get {
+                return ResourceManager.GetString("Ui_CrazyAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Ui_Details {
+            get {
+                return ResourceManager.GetString("Ui_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dog.
+        /// </summary>
+        public static string Ui_Dog {
+            get {
+                return ResourceManager.GetString("Ui_Dog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drop Food.
+        /// </summary>
+        public static string Ui_DropFood {
+            get {
+                return ResourceManager.GetString("Ui_DropFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feed.
+        /// </summary>
+        public static string Ui_Feed {
+            get {
+                return ResourceManager.GetString("Ui_Feed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by kind:.
+        /// </summary>
+        public static string Ui_FilterByKind {
+            get {
+                return ResourceManager.GetString("Ui_FilterByKind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Food.
+        /// </summary>
+        public static string Ui_Food {
+            get {
+                return ResourceManager.GetString("Ui_Food", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kind.
+        /// </summary>
+        public static string Ui_Kind {
+            get {
+                return ResourceManager.GetString("Ui_Kind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        public static string Ui_Log {
+            get {
+                return ResourceManager.GetString("Ui_Log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make sound.
+        /// </summary>
+        public static string Ui_MakeSound {
+            get {
+                return ResourceManager.GetString("Ui_MakeSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Ui_Name {
+            get {
+                return ResourceManager.GetString("Ui_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Crazy Action.
+        /// </summary>
+        public static string Ui_NoCrazyAction {
+            get {
+                return ResourceManager.GetString("Ui_NoCrazyAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove animal.
+        /// </summary>
+        public static string Ui_RemoveAnimal {
+            get {
+                return ResourceManager.GetString("Ui_RemoveAnimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Night.
+        /// </summary>
+        public static string Ui_StartNight {
+            get {
+                return ResourceManager.GetString("Ui_StartNight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stats.
+        /// </summary>
+        public static string Ui_Stats {
+            get {
+                return ResourceManager.GetString("Ui_Stats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop Night.
+        /// </summary>
+        public static string Ui_StopNight {
+            get {
+                return ResourceManager.GetString("Ui_StopNight", resourceCulture);
             }
         }
     }
