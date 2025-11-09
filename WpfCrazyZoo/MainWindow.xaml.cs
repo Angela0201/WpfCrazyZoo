@@ -16,6 +16,9 @@ using WpfCrazyZoo.Models;
 using WpfCrazyZoo.Resources;
 using System.Collections.ObjectModel;
 using WpfCrazyZoo.ViewModels;
+using Microsoft.Win32;
+using WpfCrazyZoo.Infrastructure;
+using WpfCrazyZoo.Logging;
 
 namespace WpfCrazyZoo
 {
@@ -331,6 +334,28 @@ namespace WpfCrazyZoo
         private void DropFoodBtn_Click(object sender, RoutedEventArgs e)
         {
             VM.RaiseFoodDropped();
+        }
+
+        private void SaveLogsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (VM == null || VM.LogLines == null || VM.LogLines.Count == 0)
+            {
+                MessageBox.Show("Log is empty");
+                return;
+            }
+
+            var logger = DI.Resolve<ILogger>();
+            var dlg = new SaveFileDialog();
+            dlg.Filter = logger.FileDialogFilter;
+            dlg.AddExtension = true;
+            dlg.FileName = "logs." + logger.DefaultExtension;
+
+            var ok = dlg.ShowDialog(this);
+            if (ok == true)
+            {
+                logger.SaveLogs(VM.LogLines, dlg.FileName);
+                MessageBox.Show("Logs saved");
+            }
         }
     }
 }

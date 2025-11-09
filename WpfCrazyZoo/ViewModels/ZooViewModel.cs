@@ -10,12 +10,13 @@ using WpfCrazyZoo.Enclosures;
 using WpfCrazyZoo.Models;
 using WpfCrazyZoo.Repositories;
 using System.Timers;
+using WpfCrazyZoo.Infrastructure;
 
 namespace WpfCrazyZoo.ViewModels
 {
     public class ZooViewModel : INotifyPropertyChanged
     {
-        private readonly IRepository<Animal> repo = new AnimalRepository();
+        private readonly IRepository<Animal> repo;
         private readonly Enclosure<Animal> enclosure = new Enclosure<Animal>("Main");
         private readonly Random rng = new Random();
         private readonly Timer nightTimer = new Timer(10000);
@@ -42,9 +43,14 @@ namespace WpfCrazyZoo.ViewModels
 
         public ZooViewModel()
         {
-            AddInitial(new Cat("Murka", 2));
-            AddInitial(new Dog("Bobik", 4));
-            AddInitial(new Bird("Kesha", 1));
+            repo = DI.Resolve<IRepository<Animal>>();
+
+            if (!repo.GetAll().Any())
+            {
+                AddInitial(new Cat("Murka", 2));
+                AddInitial(new Dog("Bobik", 4));
+                AddInitial(new Bird("Kesha", 1));
+            }
 
             enclosure.AnimalJoinedInSameEnclosure += Enclosure_AnimalJoinedInSameEnclosure;
             enclosure.FoodDropped += Enclosure_FoodDropped;
@@ -96,6 +102,11 @@ namespace WpfCrazyZoo.ViewModels
             AllAnimals.Clear();
             foreach (var a in repo.GetAll())
                 AllAnimals.Add(a);
+
+            enclosure.Animals.Clear();
+            foreach (var a in AllAnimals)
+                enclosure.Animals.Add(a);
+
             RebuildView();
         }
 
