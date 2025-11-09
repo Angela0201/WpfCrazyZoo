@@ -96,6 +96,7 @@
                 <StackPanel Margin="6">
                     <ListBox x:Name="LogList" Height="200" Margin="0,0,0,8" ItemsSource="{Binding LogLines}"/>
                     <Button x:Name="ClearLogBtn" Content="{x:Static res:Strings.Ui_ClearLog}" Width="120" Click="ClearLogBtn_Click"/>
+                    <Button x:Name="SaveLogsBtn" Content="Save Logs" Width="100" Margin="5" Click="SaveLogsBtn_Click"/>
                 </StackPanel>
             </GroupBox>
 
