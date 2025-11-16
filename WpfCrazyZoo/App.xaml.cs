@@ -5,12 +5,13 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using WpfCrazyZoo.Infrastructure;
-using WpfCrazyZoo.Logging;
-using WpfCrazyZoo.Repositories;
-using WpfCrazyZoo.Data;
-using WpfCrazyZoo.Models;
-
+using CrazyZoo.Infrastructure.Repositories;
+using CrazyZoo.Infrastructure.Data;
+using CrazyZoo.Infrastructure.Infrastructure;
+using CrazyZoo.Domain.Models;
+using CrazyZoo.Domain.Interfaces;
+using CrazyZoo.Application.Interfaces;
+using CrazyZoo.Application.Services;
 
 namespace WpfCrazyZoo
 {
@@ -21,31 +22,24 @@ namespace WpfCrazyZoo
         {
             base.OnStartup(e);
 
-            var logMode = ConfigurationManager.AppSettings["Logger"] ?? "xml";
-            if (logMode.ToLowerInvariant() == "json")
-                DI.Register<ILogger>(() => new JsonLogger());
-            else
-                DI.Register<ILogger>(() => new XmlLogger());
+            var repoMode = (ConfigurationManager.AppSettings["Repository"] ?? "ef").ToLowerInvariant();
 
-            var repoMode = (ConfigurationManager.AppSettings["Repository"] ?? "memory").ToLowerInvariant();
-            if (repoMode == "sql")
+            if (repoMode == "ef")
             {
-                try
-                {
-                    ZooDb.EnsureCreated();
-                    var cs = ConfigurationManager.ConnectionStrings["ZooDb"].ConnectionString;
-                    DI.Register<IRepository<Animal>>(() => new SqlAnimalRepository(cs));
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("SQL repository is unavailable. Falling back to memory. Reason: " + ex.Message);
-                    DI.Register<IRepository<Animal>>(() => new AnimalRepository());
-                }
+                DI.Register<ZooDbContext>(() => new ZooDbContext());
+                DI.Register<IRepository<Animal>>(() => new EfAnimalRepository(DI.Resolve<ZooDbContext>()));
             }
             else
             {
                 DI.Register<IRepository<Animal>>(() => new AnimalRepository());
             }
+
+            DI.Register<IAnimalService>(() => new AnimalService(DI.Resolve<IRepository<Animal>>()));
+            var logMode = ConfigurationManager.AppSettings["Logger"] ?? "xml";
+            if (logMode.ToLowerInvariant() == "json")
+                DI.Register<CrazyZoo.Infrastructure.Logging.ILogger>(() => new CrazyZoo.Infrastructure.Logging.JsonLogger());
+            else
+                DI.Register<CrazyZoo.Infrastructure.Logging.ILogger>(() => new CrazyZoo.Infrastructure.Logging.XmlLogger());
         }
     }
 }

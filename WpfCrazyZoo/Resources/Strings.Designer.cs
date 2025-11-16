@@ -97,6 +97,15 @@ namespace WpfCrazyZoo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} noticed {1}.
+        /// </summary>
+        public static string Msg_AnimalNoticed {
+            get {
+                return ResourceManager.GetString("Msg_AnimalNoticed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear all log entries?.
         /// </summary>
         public static string Msg_ClearLogConfirmText {
@@ -120,6 +129,24 @@ namespace WpfCrazyZoo.Resources {
         public static string Msg_Crazy {
             get {
                 return ResourceManager.GetString("Msg_Crazy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} finished eating.
+        /// </summary>
+        public static string Msg_EatingFinished {
+            get {
+                return ResourceManager.GetString("Msg_EatingFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} starts eating.
+        /// </summary>
+        public static string Msg_EatingStart {
+            get {
+                return ResourceManager.GetString("Msg_EatingStart", resourceCulture);
             }
         }
         
@@ -151,11 +178,29 @@ namespace WpfCrazyZoo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} joined enclosure.
+        /// </summary>
+        public static string Msg_JoinedEnclosure {
+            get {
+                return ResourceManager.GetString("Msg_JoinedEnclosure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log is already empty..
         /// </summary>
         public static string Msg_LogEmpty {
             get {
                 return ResourceManager.GetString("Msg_LogEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logs saved..
+        /// </summary>
+        public static string Msg_LogsSaved {
+            get {
+                return ResourceManager.GetString("Msg_LogsSaved", resourceCulture);
             }
         }
         
@@ -174,6 +219,24 @@ namespace WpfCrazyZoo.Resources {
         public static string Msg_NameRequired {
             get {
                 return ResourceManager.GetString("Msg_NameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Night event started..
+        /// </summary>
+        public static string Msg_NightStarted {
+            get {
+                return ResourceManager.GetString("Msg_NightStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Night event stopped..
+        /// </summary>
+        public static string Msg_NightStopped {
+            get {
+                return ResourceManager.GetString("Msg_NightStopped", resourceCulture);
             }
         }
         
@@ -214,6 +277,15 @@ namespace WpfCrazyZoo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log is empty..
+        /// </summary>
+        public static string Msg_SaveLogEmpty {
+            get {
+                return ResourceManager.GetString("Msg_SaveLogEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select animal kind..
         /// </summary>
         public static string Msg_SelectKind {
@@ -223,11 +295,47 @@ namespace WpfCrazyZoo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is sleeping peacefully.
+        /// </summary>
+        public static string Msg_Sleeping {
+            get {
+                return ResourceManager.GetString("Msg_Sleeping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}: {1}.
         /// </summary>
         public static string Msg_Sound {
             get {
                 return ResourceManager.GetString("Msg_Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average age: {0}.
+        /// </summary>
+        public static string Msg_StatsAverageAge {
+            get {
+                return ResourceManager.GetString("Msg_StatsAverageAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}: {1} (avg {2}).
+        /// </summary>
+        public static string Msg_StatsByKind {
+            get {
+                return ResourceManager.GetString("Msg_StatsByKind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oldest: {0} ({1}).
+        /// </summary>
+        public static string Msg_StatsOldest {
+            get {
+                return ResourceManager.GetString("Msg_StatsOldest", resourceCulture);
             }
         }
         
@@ -462,6 +570,15 @@ namespace WpfCrazyZoo.Resources {
         public static string Ui_RemoveAnimal {
             get {
                 return ResourceManager.GetString("Ui_RemoveAnimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Logs.
+        /// </summary>
+        public static string Ui_SaveLogs {
+            get {
+                return ResourceManager.GetString("Ui_SaveLogs", resourceCulture);
             }
         }
         

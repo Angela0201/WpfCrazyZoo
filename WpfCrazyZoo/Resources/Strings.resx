@@ -261,4 +261,43 @@
   <data name="Ui_NoCrazyAction" xml:space="preserve">
     <value>No Crazy Action</value>
   </data>
+	<data name="Ui_SaveLogs" xml:space="preserve">
+    <value>Save Logs</value>
+  </data>
+	<data name="Msg_LogsSaved" xml:space="preserve">
+    <value>Logs saved.</value>
+  </data>
+	<data name="Msg_JoinedEnclosure" xml:space="preserve">
+    <value>{0} joined enclosure</value>
+  </data>
+	<data name="Msg_AnimalNoticed" xml:space="preserve">
+    <value>{0} noticed {1}</value>
+  </data>
+	<data name="Msg_EatingStart" xml:space="preserve">
+    <value>{0} starts eating</value>
+  </data>
+	<data name="Msg_EatingFinished" xml:space="preserve">
+    <value>{0} finished eating</value>
+  </data>
+	<data name="Msg_Sleeping" xml:space="preserve">
+    <value>{0} is sleeping peacefully</value>
+  </data>
+	<data name="Msg_NightStarted" xml:space="preserve">
+    <value>Night event started.</value>
+  </data>
+	<data name="Msg_NightStopped" xml:space="preserve">
+    <value>Night event stopped.</value>
+  </data>
+	<data name="Msg_StatsByKind" xml:space="preserve">
+    <value>{0}: {1} (avg {2})</value>
+  </data>
+	<data name="Msg_StatsAverageAge" xml:space="preserve">
+    <value>Average age: {0}</value>
+  </data>
+	<data name="Msg_StatsOldest" xml:space="preserve">
+    <value>Oldest: {0} ({1})</value>
+  </data>
+	<data name="Msg_SaveLogEmpty" xml:space="preserve">
+    <value>Log is empty.</value>
+  </data>
 </root>
