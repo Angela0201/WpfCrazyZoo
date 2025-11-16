@@ -1,0 +1,19 @@
+﻿namespace CrazyZoo.Infrastructure.Logging
+{
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text.Json;
+
+    public class JsonLogger : ILogger
+    {
+        public string DefaultExtension => "json";
+        public string FileDialogFilter => "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+        public void SaveLogs(IEnumerable<string> logs, string path)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(logs, options);
+            File.WriteAllText(path, json);
+        }
+    }
+}

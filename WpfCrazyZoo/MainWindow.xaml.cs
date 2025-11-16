@@ -1,24 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using WpfCrazyZoo.Models;
+using CrazyZoo.Domain.Models;
 using WpfCrazyZoo.Resources;
-using System.Collections.ObjectModel;
 using WpfCrazyZoo.ViewModels;
 using Microsoft.Win32;
-using WpfCrazyZoo.Infrastructure;
-using WpfCrazyZoo.Logging;
+using CrazyZoo.Infrastructure.Infrastructure;
+using CrazyZoo.Infrastructure.Logging;
 
 namespace WpfCrazyZoo
 {
@@ -180,24 +167,23 @@ namespace WpfCrazyZoo
             if (kindCombo.SelectedItem is ComboBoxItem item && item.Tag != null)
                 int.TryParse(item.Tag.ToString(), out kindCode);
 
-            Animal newAnimal;
-            if (kindCode == (int)AnimalKind.Cat) newAnimal = new Cat(name, age);
-            else if (kindCode == (int)AnimalKind.Dog) newAnimal = new Dog(name, age);
-            else newAnimal = new Bird(name, age);
-
-            VM.AddAnimal(newAnimal);
+            VM.AddAnimal(name, age, (AnimalKind)kindCode);
             RebuildView();
             VM.LogLines.Insert(0, Strings.Msg_Added);
         }
 
-        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        private Animal GetSelectedAnimalOrShowMessage()
         {
             var a = AnimalsList.SelectedItem as Animal;
             if (a == null)
-            {
                 MessageBox.Show(Strings.Msg_NoSelection);
-                return;
-            }
+            return a;
+        }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var a = GetSelectedAnimalOrShowMessage();
+            if (a == null) return;
 
             var res = MessageBox.Show(Strings.Msg_RemoveConfirmText, Strings.Msg_RemoveConfirmTitle,
                                       MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -213,12 +199,8 @@ namespace WpfCrazyZoo
 
         private void SoundBtn_Click(object sender, RoutedEventArgs e)
         {
-            var a = AnimalsList.SelectedItem as Animal;
-            if (a == null)
-            {
-                MessageBox.Show(Strings.Msg_NoSelection);
-                return;
-            }
+            var a = GetSelectedAnimalOrShowMessage();
+            if (a == null) return;
 
             string sound = a.MakeSound();
             VM.LogLines.Insert(0, string.Format(Strings.Msg_Sound, a.Name, sound));
@@ -226,12 +208,8 @@ namespace WpfCrazyZoo
 
         private void FeedBtn_Click(object sender, RoutedEventArgs e)
         {
-            var a = AnimalsList.SelectedItem as Animal;
-            if (a == null)
-            {
-                MessageBox.Show(Strings.Msg_NoSelection);
-                return;
-            }
+            var a = GetSelectedAnimalOrShowMessage();
+            if (a == null) return;
 
             string food = SafeTrim(FoodBox.Text);
             if (string.IsNullOrWhiteSpace(food))
@@ -252,20 +230,16 @@ namespace WpfCrazyZoo
 
         private void CrazyBtn_Click(object sender, RoutedEventArgs e)
         {
-            var a = AnimalsList.SelectedItem as Animal;
-            if (a == null)
-            {
-                MessageBox.Show(Strings.Msg_NoSelection);
-                return;
-            }
+            var a = GetSelectedAnimalOrShowMessage();
+            if (a == null) return;
 
             string resultText;
-            if (a is Cat c) resultText = c.ActCrazy();
-            else if (a is Dog d) resultText = d.ActCrazy();
-            else if (a is Bird b) resultText = b.ActCrazy();
-            else resultText = Strings.Ui_NoCrazyAction;
+            if (a is CrazyZoo.Domain.Interfaces.ICrazyAction ca)
+                resultText = ca.ActCrazy();
+            else
+                resultText = Strings.Ui_NoCrazyAction;
 
-            VM.LogLines.Insert(0, string.Format(WpfCrazyZoo.Resources.Strings.Msg_Crazy, resultText));
+            VM.LogLines.Insert(0, string.Format(Strings.Msg_Crazy, resultText));
         }
 
         private void FilterKindCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -340,7 +314,7 @@ namespace WpfCrazyZoo
         {
             if (VM == null || VM.LogLines == null || VM.LogLines.Count == 0)
             {
-                MessageBox.Show("Log is empty");
+                MessageBox.Show(Strings.Msg_SaveLogEmpty);
                 return;
             }
 
@@ -354,7 +328,7 @@ namespace WpfCrazyZoo
             if (ok == true)
             {
                 logger.SaveLogs(VM.LogLines, dlg.FileName);
-                MessageBox.Show("Logs saved");
+                MessageBox.Show(Strings.Msg_LogsSaved);
             }
         }
     }
