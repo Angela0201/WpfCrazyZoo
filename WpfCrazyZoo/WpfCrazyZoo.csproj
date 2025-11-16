@@ -146,7 +146,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrazyZoo.Infrastructructure\CrazyZoo.Infrastructure.csproj">
+    <ProjectReference Include="..\CrazyZoo.project\CrazyZoo.Infrastructure\CrazyZoo.Infrastructure.csproj">
       <Project>{114c0510-1e81-4152-9c9b-37fae6af04ad}</Project>
       <Name>CrazyZoo.Infrastructure</Name>
     </ProjectReference>
